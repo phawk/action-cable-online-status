@@ -22,6 +22,20 @@ Then run `bin/dev` and `open localhost:3000`.
 $ bin/rails g channel Online
 ```
 
+### Making User.rb "live"
+
+Add this to the top of the model
+
+```ruby
+after_update_commit { broadcast_replace_to("online_users") }
+```
+
+And this to your view file that you want to listen for changes
+
+```ruby
+<%= turbo_stream_from "online_users" %>
+```
+
 ### License
 
 This code is licensed under the MIT License.
