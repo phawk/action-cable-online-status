@@ -16,6 +16,12 @@ To get set up, run the `bin/setup` script, to install dependencies, create the d
 
 Then run `bin/dev` and `open localhost:3000`.
 
+## Creating the action cable channel
+
+```sh
+$ bin/rails g channel Online
+```
+
 ### License
 
 This code is licensed under the MIT License.
