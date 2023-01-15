@@ -24,7 +24,7 @@
         </nav>
         <% if user_signed_in? %>
           <span class="mr-3 text-sm">Sign in as <%= current_user.username %></span>
-          <%= button_to session_path(current_user.id), method: :delete, class: "inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" do %>
+          <%= button_to session_path(current_user.id), method: :delete, data: { turbo: false }, class: "inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" do %>
             Logout
           <% end %>
         <% else %>
