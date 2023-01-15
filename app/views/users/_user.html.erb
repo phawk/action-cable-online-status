@@ -1,4 +1,4 @@
-<li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow" id="<%= user.id %>">
+<li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow" id="<%= dom_id(user) %>">
   <div class="flex flex-1 flex-col p-8">
     <%= image_tag "avatars/#{user.username}.jpg", alt: user.username, class: "mx-auto h-32 w-32 flex-shrink-0 rounded-full" %>
     <h3 class="mt-6 text-sm font-medium text-gray-900">@<%= user.username %></h3>
