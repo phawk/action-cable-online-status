@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def current_user
-    if session[:user_id]
-      @user ||= User.find(session[:user_id])
+    if cookies.encrypted[:user_id]
+      @user ||= User.find(cookies.encrypted[:user_id])
     end
   rescue => e
-    session.destroy
+    cookies.delete(:user_id)
   end
   helper_method :current_user
 end

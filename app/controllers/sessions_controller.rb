@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
 
     if user
-      session[:user_id] = user.id
+      cookies.encrypted[:user_id] = user.id
       redirect_to root_path
     else
       redirect_to new_session_path, notice: "User not found!"
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.destroy
+    cookies.delete(:user_id)
     redirect_to root_path
   end
 end
